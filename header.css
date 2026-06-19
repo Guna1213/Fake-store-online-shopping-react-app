@@ -1,0 +1,210 @@
+/* ─────────────────────────────────────────
+   Header.css — Cyberpunk Interface Overhaul
+   ───────────────────────────────────────── */
+
+@import url('https://fonts.googleapis.com/css2?family=Orbitron:wght@500;700;900&family=Plus+Jakarta+Sans:wght@400;500;700&display=swap');
+
+:root {
+  --neon-bg:         #0a0b10;
+  --neon-surface:    #121420;
+  --neon-border:     #22263f;
+  --neon-cyan:       #00f0ff;
+  --neon-pink:       #ff007f;
+  --neon-text:       #f0f4fc;
+  --neon-text-muted: #7882a4;
+  --font-cyber:      'Orbitron', sans-serif;
+  --font-main:       'Plus Jakarta Sans', sans-serif;
+}
+
+.header {
+  position: sticky;
+  top: 0;
+  z-index: 100;
+  background: rgba(10, 11, 16, 0.92);
+  backdrop-filter: blur(18px);
+  border-bottom: 1px solid var(--neon-border);
+}
+
+/* Linear scanning top edge overlay ribbon */
+.header::after {
+  content: '';
+  position: absolute;
+  bottom: -1px;
+  left: 0;
+  width: 100%;
+  height: 1px;
+  background: linear-gradient(90deg, transparent, var(--neon-cyan), transparent);
+}
+
+.header__inner {
+  max-width: 1280px;
+  margin: 0 auto;
+  padding: 0 2rem;
+  height: 72px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 2rem;
+}
+
+/* Logo System */
+.header__logo {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  text-decoration: none;
+  flex-shrink: 0;
+}
+
+.header__logo-icon {
+  width: 36px;
+  height: 36px;
+  background: transparent;
+  border: 1px solid var(--neon-pink);
+  border-radius: 0px; /* Sharp technical edges */
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1rem;
+  box-shadow: 0 0 10px rgba(255, 0, 127, 0.3);
+}
+
+.header__logo-text {
+  font-family: var(--font-cyber);
+  font-size: 1.25rem;
+  font-weight: 900;
+  color: var(--neon-text);
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+
+.header__logo-text span {
+  color: var(--neon-cyan);
+  text-shadow: 0 0 8px rgba(0, 240, 255, 0.4);
+}
+
+/* Search Architecture */
+.header__search {
+  flex: 1;
+  max-width: 420px;
+  position: relative;
+}
+
+.header__search input {
+  width: 100%;
+  background: var(--neon-surface);
+  border: 1px solid var(--neon-border);
+  border-radius: 0px; /* Sharp inputs */
+  padding: 0.6rem 1rem 0.6rem 2.8rem;
+  color: var(--neon-text);
+  font-family: var(--font-main);
+  font-size: 0.875rem;
+  outline: none;
+  transition: all 0.25s ease;
+}
+
+.header__search input::placeholder {
+  color: var(--neon-text-muted);
+}
+
+.header__search input:focus {
+  border-color: var(--neon-cyan);
+  box-shadow: 0 0 12px rgba(0, 240, 255, 0.15);
+  background: #16192b;
+}
+
+.header__search-icon {
+  position: absolute;
+  left: 1rem;
+  top: 50%;
+  transform: translateY(-50%);
+  color: var(--neon-cyan);
+  font-size: 0.85rem;
+  pointer-events: none;
+}
+
+/* Navigation Links */
+.header__nav {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.header__nav a {
+  font-family: var(--font-cyber);
+  font-size: 11px;
+  font-weight: 700;
+  text-transform: uppercase;
+  color: var(--neon-text-muted);
+  text-decoration: none;
+  padding: 0.5rem 1rem;
+  border-radius: 0px;
+  transition: all 0.2s ease;
+  letter-spacing: 1px;
+  border: 1px solid transparent;
+}
+
+.header__nav a:hover,
+.header__nav a.active {
+  color: var(--neon-cyan);
+  border-color: rgba(0, 240, 255, 0.2);
+  background: rgba(0, 240, 255, 0.05);
+}
+
+/* Cart Trigger Button */
+.header__cart-btn {
+  position: relative;
+  background: var(--neon-surface);
+  border: 1px solid var(--neon-border);
+  color: var(--neon-text);
+  width: 44px;
+  height: 44px;
+  border-radius: 0px; /* Linear sharp module box */
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  font-size: 1.1rem;
+  flex-shrink: 0;
+}
+
+.header__cart-btn:hover {
+  border-color: var(--neon-pink);
+  background: rgba(255, 0, 127, 0.05);
+  color: var(--neon-pink);
+}
+
+.header__cart-badge {
+  position: absolute;
+  top: -6px;
+  right: -6px;
+  background: var(--neon-pink);
+  color: #000000;
+  font-family: var(--font-cyber);
+  font-size: 10px;
+  font-weight: 900;
+  width: 18px;
+  height: 18px;
+  border-radius: 0px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0 0 8px var(--neon-pink);
+}
+
+/* Responsive Overrides */
+@media (max-width: 768px) {
+  .header__inner {
+    padding: 0 1rem;
+    gap: 1rem;
+  }
+
+  .header__search {
+    max-width: 160px;
+  }
+
+  .header__nav a:not(.active) {
+    display: none;
+  }
+}

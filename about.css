@@ -1,0 +1,266 @@
+/* ─────────────────────────────────────────
+   About.css — Cyberpunk Interface Overhaul
+   ───────────────────────────────────────── */
+
+.about {
+  min-height: 100vh;
+  background: var(--neon-bg);
+  font-family: var(--font-main);
+  color: var(--neon-text);
+}
+
+/* ══════════════════════════════════════════
+   HERO INTERACTIVE HEADER
+   ══════════════════════════════════════════ */
+.about__hero {
+  background: linear-gradient(135deg, #0a0b10 0%, #121420 100%);
+  border-bottom: 1px solid var(--neon-border);
+  padding: 6rem 2rem 4rem;
+  text-align: center;
+  position: relative;
+  overflow: hidden;
+}
+
+.about__hero::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: radial-gradient(ellipse 60% 60% at 50% 0%, rgba(0, 240, 255, 0.08), transparent);
+  pointer-events: none;
+}
+
+.about__eyebrow {
+  font-family: var(--font-cyber);
+  font-size: 0.75rem;
+  color: var(--neon-cyan);
+  text-transform: uppercase;
+  letter-spacing: 0.25em;
+  font-weight: 700;
+  margin-bottom: 1rem;
+  text-shadow: 0 0 8px rgba(0, 240, 255, 0.4);
+}
+
+.about__hero-title {
+  font-family: var(--font-cyber);
+  font-size: clamp(2.2rem, 5vw, 3.8rem);
+  font-weight: 900;
+  color: var(--neon-text);
+  text-transform: uppercase;
+  letter-spacing: -0.01em;
+  line-height: 1.1;
+  margin-bottom: 1.25rem;
+}
+
+.about__hero-title em {
+  font-style: normal;
+  color: transparent;
+  -webkit-text-stroke: 1px var(--neon-pink);
+  text-shadow: 0 0 15px rgba(255, 0, 127, 0.4);
+}
+
+.about__hero-sub {
+  font-size: 1rem;
+  color: var(--neon-text-muted);
+  max-width: 580px;
+  margin: 0 auto;
+  line-height: 1.7;
+}
+
+/* ══════════════════════════════════════════
+   CONTENT ARCHITECTURE
+   ══════════════════════════════════════════ */
+.about__content {
+  max-width: 1100px;
+  margin: 0 auto;
+  padding: 4rem 2rem;
+}
+
+/* Dashboard Cards Grid */
+.about__cards {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 1.5rem;
+  margin-bottom: 4rem;
+}
+
+.about__card {
+  background: var(--neon-surface);
+  border: 1px solid var(--neon-border);
+  border-radius: 0px; /* Sharp angles */
+  padding: 2.5rem 2rem;
+  position: relative;
+  transition: border-color 0.25s ease, transform 0.25s ease, box-shadow 0.25s ease;
+  animation: fadeUp 0.5s cubic-bezier(0.25, 0.8, 0.25, 1) both;
+}
+
+.about__card:hover {
+  border-color: var(--neon-cyan);
+  transform: translateY(-4px);
+  box-shadow: 0 0 20px rgba(0, 240, 255, 0.15);
+}
+
+.about__card::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 4px;
+  height: 0;
+  background: var(--neon-cyan);
+  transition: height 0.25s ease;
+}
+
+.about__card:hover::before {
+  height: 100%;
+}
+
+.about__card-icon {
+  font-size: 2rem;
+  margin-bottom: 1.25rem;
+  display: inline-block;
+  filter: drop-shadow(0 0 8px rgba(0, 240, 255, 0.4));
+}
+
+.about__card-title {
+  font-family: var(--font-cyber);
+  font-size: 1.15rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  color: var(--neon-text);
+  margin-bottom: 0.85rem;
+}
+
+.about__card-text {
+  font-size: 0.875rem;
+  color: var(--neon-text-muted);
+  line-height: 1.7;
+}
+
+/* ══════════════════════════════════════════
+   DATABANK API SECTION
+   ══════════════════════════════════════════ */
+.about__api {
+  background: var(--neon-surface);
+  border: 1px solid var(--neon-border);
+  border-radius: 0px;
+  padding: 2.5rem;
+  margin-bottom: 4rem;
+}
+
+.about__api-title, .about__stack-title {
+  font-family: var(--font-cyber);
+  font-size: 1.35rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  color: var(--neon-text);
+  margin-bottom: 1.75rem;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.about__api-title::before, .about__stack-title::before {
+  content: '//';
+  color: var(--neon-pink);
+  text-shadow: 0 0 8px rgba(255, 0, 127, 0.5);
+}
+
+.about__endpoints {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+.about__endpoint {
+  display: flex;
+  align-items: center;
+  gap: 1.25rem;
+  padding: 1rem 1.25rem;
+  background: var(--neon-bg);
+  border: 1px solid var(--neon-border);
+  border-radius: 0px;
+  flex-wrap: wrap;
+}
+
+.about__method {
+  font-family: var(--font-cyber);
+  font-size: 0.7rem;
+  font-weight: 900;
+  color: #000000;
+  background: var(--neon-cyan);
+  padding: 4px 10px;
+  border-radius: 0px;
+  flex-shrink: 0;
+  box-shadow: 0 0 8px rgba(0, 240, 255, 0.3);
+}
+
+.about__endpoint-url {
+  font-family: monospace;
+  font-size: 0.85rem;
+  color: var(--neon-text);
+  flex: 1;
+  word-break: break-all;
+  letter-spacing: 0.5px;
+}
+
+.about__endpoint-desc {
+  font-size: 0.85rem;
+  color: var(--neon-text-muted);
+  width: 100%;
+  padding-top: 4px;
+  border-top: 1px dashed rgba(34, 38, 63, 0.5);
+  margin-top: 4px;
+}
+
+/* ══════════════════════════════════════════
+   TECH NODE OVERRIDE STACK
+   ══════════════════════════════════════════ */
+.about__stack {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.75rem;
+}
+
+.about__stack-item {
+  font-family: var(--font-cyber);
+  font-size: 0.75rem;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  color: var(--neon-text-muted);
+  background: var(--neon-surface);
+  border: 1px solid var(--neon-border);
+  padding: 8px 18px;
+  border-radius: 0px; /* Sharp chips */
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  transition: all 0.2s ease;
+  cursor: default;
+}
+
+.about__stack-item:hover {
+  border-color: var(--neon-pink);
+  color: var(--neon-text);
+  box-shadow: 0 0 10px rgba(255, 0, 127, 0.2);
+}
+
+@keyframes fadeUp {
+  from { opacity: 0; transform: translateY(16px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+
+@media (max-width: 768px) {
+  .about__hero {
+    padding: 4rem 1rem 3rem;
+  }
+  .about__content {
+    padding: 2.5rem 1rem;
+  }
+  .about__endpoint {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 8px;
+  }
+}

@@ -1,0 +1,303 @@
+/* ─────────────────────────────────────────
+   Home.css — Radical Cyberpunk Arcade Transformation
+   ───────────────────────────────────────── */
+@import url('https://fonts.googleapis.com/css2?family=Orbitron:wght@500;700;900&family=Plus+Jakarta+Sans:wght@400;500;700&display=swap');
+
+:root {
+  --neon-bg: #0a0b10;
+  --neon-surface: #121420;
+  --neon-border: #22263f;
+  --neon-cyan: #00f0ff;
+  --neon-pink: #ff007f;
+  --neon-text: #f0f4fc;
+  --neon-text-muted: #7882a4;
+  --font-cyber: 'Orbitron', sans-serif;
+  --font-main: 'Plus Jakarta Sans', sans-serif;
+}
+
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+.home {
+  min-height: 100vh;
+  background: var(--neon-bg);
+  font-family: var(--font-main);
+  color: var(--neon-text);
+  padding-bottom: 5rem;
+}
+
+/* ══════════════════════════════════════════
+   HERO: FUTURISTIC RADAR SYSTEM
+   ══════════════════════════════════════════ */
+.home__hero {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 6rem 2rem 4rem;
+  text-align: left;
+  background: radial-gradient(circle at top right, rgba(0, 240, 255, 0.07), transparent 45%);
+  position: relative;
+}
+
+.home__hero-eyebrow {
+  display: inline-block;
+  font-family: var(--font-cyber);
+  font-size: 11px;
+  color: var(--neon-cyan);
+  border: 1px solid var(--neon-cyan);
+  padding: 4px 12px;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  margin-bottom: 1.5rem;
+  box-shadow: 0 0 10px rgba(0, 240, 255, 0.2);
+}
+
+.home__hero-title {
+  font-family: var(--font-cyber);
+  font-size: clamp(32px, 5vw, 54px);
+  font-weight: 900;
+  text-transform: uppercase;
+  letter-spacing: -1px;
+  line-height: 1.05;
+  margin-bottom: 1.5rem;
+}
+
+.home__hero-title em {
+  font-style: normal;
+  color: transparent;
+  -webkit-text-stroke: 1px var(--neon-cyan);
+  text-shadow: 0 0 15px rgba(0, 240, 255, 0.3);
+}
+
+.home__hero-sub {
+  font-size: 16px;
+  color: var(--neon-text-muted);
+  max-width: 600px;
+  line-height: 1.6;
+  margin-bottom: 3rem;
+}
+
+.home__hero-stats {
+  display: grid;
+  grid-template-columns: repeat(3, 160px);
+  gap: 20px;
+}
+
+.home__stat {
+  background: var(--neon-surface);
+  border: 1px solid var(--neon-border);
+  padding: 16px;
+  border-left: 3px solid var(--neon-pink);
+}
+
+.home__stat-num {
+  font-family: var(--font-cyber);
+  font-size: 24px;
+  color: var(--neon-text);
+  display: block;
+}
+
+.home__stat-label {
+  font-size: 11px;
+  color: var(--neon-text-muted);
+  text-transform: uppercase;
+  letter-spacing: 1px;
+}
+
+/* ══════════════════════════════════════════
+   GLASS CONTROLS PANEL
+   ══════════════════════════════════════════ */
+.home__controls {
+  max-width: 1200px;
+  margin: 2rem auto 0;
+  padding: 1.5rem;
+  background: var(--neon-surface);
+  border: 1px solid var(--neon-border);
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 20px;
+}
+
+.home__categories {
+  display: flex;
+  gap: 10px;
+  flex-wrap: wrap;
+}
+
+.home__cat-btn {
+  background: transparent;
+  border: 1px solid var(--neon-border);
+  color: var(--neon-text-muted);
+  padding: 8px 18px;
+  font-family: var(--font-cyber);
+  font-size: 11px;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  cursor: pointer;
+  transition: all 0.25s ease;
+}
+
+.home__cat-btn:hover {
+  border-color: var(--neon-pink);
+  color: var(--neon-pink);
+}
+
+.home__cat-btn.active {
+  background: var(--neon-pink);
+  border-color: var(--neon-pink);
+  color: #000000;
+  font-weight: 700;
+  box-shadow: 0 0 15px rgba(255, 0, 127, 0.4);
+}
+
+.home__sort select {
+  background: var(--neon-bg);
+  border: 1px solid var(--neon-border);
+  color: var(--neon-text);
+  padding: 8px 16px;
+  font-family: var(--font-cyber);
+  font-size: 11px;
+  outline: none;
+  cursor: pointer;
+}
+
+.home__results-bar {
+  max-width: 1200px;
+  margin: 1rem auto 0;
+  padding: 0 2rem;
+  font-size: 12px;
+  color: var(--neon-text-muted);
+  text-transform: uppercase;
+}
+
+/* ══════════════════════════════════════════
+   GLOWING TECH GRID & CARDS
+   ══════════════════════════════════════════ */
+.home__grid {
+  max-width: 1200px;
+  margin: 1.5rem auto 0;
+  padding: 0 2rem;
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
+  gap: 24px;
+}
+
+.product-card {
+  background: var(--neon-surface);
+  border: 1px solid var(--neon-border);
+  border-radius: 0px; /* Sharp technical edges */
+  position: relative;
+  transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
+  display: flex;
+  flex-direction: column;
+}
+
+.product-card:hover {
+  transform: translateY(-4px);
+  border-color: var(--neon-cyan);
+  box-shadow: 0 0 20px rgba(0, 240, 255, 0.2);
+}
+
+.product-card__img-wrap {
+  background: #181b2c;
+  height: 240px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 20px;
+  position: relative;
+}
+
+.product-card__img-wrap img {
+  max-height: 180px;
+  filter: drop-shadow(0 0 8px rgba(0,0,0,0.5));
+}
+
+.product-card__category {
+  position: absolute;
+  top: 12px;
+  right: 12px;
+  font-family: var(--font-cyber);
+  font-size: 9px;
+  color: var(--neon-cyan);
+  background: rgba(10, 11, 16, 0.85);
+  border: 1px solid var(--neon-cyan);
+  padding: 2px 8px;
+}
+
+.product-card__body {
+  padding: 20px;
+  display: flex;
+  flex-direction: column;
+  flex: 1;
+}
+
+.product-card__title {
+  font-size: 14px;
+  font-weight: 500;
+  line-height: 1.4;
+  color: var(--neon-text);
+  margin-bottom: 12px;
+  height: 40px;
+  overflow: hidden;
+}
+
+.product-card__stars {
+  color: var(--neon-cyan);
+  text-shadow: 0 0 5px rgba(0, 240, 255, 0.5);
+}
+
+.product-card__footer {
+  margin-top: auto;
+  padding-top: 16px;
+  border-top: 1px solid var(--neon-border);
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.product-card__price {
+  font-family: var(--font-cyber);
+  font-size: 18px;
+  color: var(--neon-pink);
+  text-shadow: 0 0 8px rgba(255, 0, 127, 0.3);
+}
+
+.product-card__add-btn {
+  background: transparent;
+  border: 1px solid var(--neon-cyan);
+  color: var(--neon-cyan);
+  font-family: var(--font-cyber);
+  font-size: 11px;
+  padding: 6px 16px;
+  cursor: pointer;
+  transition: all 0.2s;
+}
+
+.product-card__add-btn:hover {
+  background: var(--neon-cyan);
+  color: #000000;
+  box-shadow: 0 0 12px var(--neon-cyan);
+}
+
+/* ══════════════════════════════════════════
+   LOADING & EMPTY SPINNER SYSTEMS
+   ══════════════════════════════════════════ */
+.home__loading {
+  text-align: center;
+  padding: 8rem 0;
+  color: var(--neon-cyan);
+  font-family: var(--font-cyber);
+}
+
+.home__spinner {
+  width: 40px;
+  height: 40px;
+  border: 2px solid transparent;
+  border-top-color: var(--neon-cyan);
+  border-bottom-color: var(--neon-pink);
+  border-radius: 50%;
+  margin: 0 auto 20px;
+  animation: spin 1s linear infinite;
+}
+
+@keyframes spin { to { transform: rotate(360deg); } }

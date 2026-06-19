@@ -1,0 +1,93 @@
+/* ─────────────────────────────────────────
+   App.css — Cyberpunk Global Layout Base
+   ───────────────────────────────────────── */
+
+@import url('https://fonts.googleapis.com/css2?family=Orbitron:wght@500;700;900&family=Plus+Jakarta+Sans:wght@400;500;700&family=JetBrains+Mono:wght@400;500&display=swap');
+
+:root {
+  --neon-bg:         #0a0b10;
+  --neon-surface:    #121420;
+  --neon-border:     #22263f;
+  --neon-cyan:       #00f0ff;
+  --neon-pink:       #ff007f;
+  --neon-text:       #f0f4fc;
+  --neon-text-muted: #7882a4;
+  --font-cyber:      'Orbitron', sans-serif;
+  --font-main:       'Plus Jakarta Sans', sans-serif;
+  --font-mono:       'JetBrains Mono', monospace;
+}
+
+/* Global Reset Optimization */
+html, body {
+  background-color: var(--neon-bg);
+  color: var(--neon-text);
+  font-family: var(--font-main);
+  min-height: 100vh;
+  margin: 0;
+  padding: 0;
+  overflow-x: hidden;
+}
+
+/* ══════════════════════════════════════════
+   CORE MASTER WEB APPLICATION CONTAINER
+   ══════════════════════════════════════════ */
+.App {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+  position: relative;
+  background: var(--neon-bg);
+}
+
+/* Continuous Subtle Ambient Background Scanning Matrix */
+.App::before {
+  content: '';
+  position: fixed;
+  inset: 0;
+  background-image: 
+    linear-gradient(rgba(34, 38, 63, 0.04) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(34, 38, 63, 0.04) 1px, transparent 1px);
+  background-size: 30px 30px;
+  pointer-events: none;
+  z-index: 1;
+}
+
+/* Content Frame Wrapper */
+.main-content {
+  flex: 1;
+  width: 100%;
+  margin: 0 auto;
+  box-sizing: border-box;
+  position: relative;
+  z-index: 2;
+}
+
+/* ══════════════════════════════════════════
+   CUSTOM FUTURE-TERMINAL SCROLLBAR
+   ══════════════════════════════════════════ */
+::-webkit-scrollbar {
+  width: 8px;
+  height: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: var(--neon-bg);
+  border-left: 1px solid var(--neon-border);
+}
+
+::-webkit-scrollbar-thumb {
+  background: var(--neon-border);
+  border-radius: 0px;
+  transition: background 0.2s ease;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: var(--neon-cyan);
+  box-shadow: 0 0 8px var(--neon-cyan);
+}
+
+/* Selection Overrides */
+::selection {
+  background: var(--neon-pink);
+  color: #000000;
+}

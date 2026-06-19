@@ -1,0 +1,172 @@
+/* ─────────────────────────────────────────
+   Footer.css — Cyberpunk Interface Overhaul
+   ───────────────────────────────────────── */
+
+.footer {
+  background: var(--neon-surface);
+  border-top: 1px solid var(--neon-border);
+  margin-top: auto;
+  position: relative;
+}
+
+/* Accent neon strip lining the header top line */
+.footer::before {
+  content: '';
+  position: absolute;
+  top: -1px;
+  left: 0;
+  width: 100%;
+  height: 1px;
+  background: linear-gradient(90deg, transparent, var(--neon-cyan), var(--neon-pink), transparent);
+}
+
+.footer__inner {
+  max-width: 1280px;
+  margin: 0 auto;
+  padding: 4rem 2rem 2rem;
+}
+
+.footer__grid {
+  display: grid;
+  grid-template-columns: 2fr 1fr 1fr;
+  gap: 3rem;
+  margin-bottom: 3rem;
+}
+
+.footer__brand-logo {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  margin-bottom: 1.25rem;
+  text-decoration: none;
+}
+
+.footer__brand-icon {
+  width: 32px;
+  height: 32px;
+  background: transparent;
+  border: 1px solid var(--neon-pink);
+  border-radius: 0px; /* Sharp technical edge alignment */
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 0.9rem;
+  box-shadow: 0 0 8px rgba(255, 0, 127, 0.3);
+}
+
+.footer__brand-name {
+  font-family: var(--font-cyber);
+  font-size: 1.15rem;
+  font-weight: 900;
+  color: var(--neon-text);
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+
+.footer__brand-name span {
+  color: var(--neon-cyan);
+  text-shadow: 0 0 8px rgba(0, 240, 255, 0.4);
+}
+
+.footer__tagline {
+  font-size: 0.85rem;
+  color: var(--neon-text-muted);
+  line-height: 1.6;
+  max-width: 300px;
+}
+
+.footer__col-title {
+  font-family: var(--font-cyber);
+  font-size: 0.75rem;
+  font-weight: 700;
+  color: var(--neon-pink);
+  text-transform: uppercase;
+  letter-spacing: 1.5px;
+  margin-bottom: 1.25rem;
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
+
+.footer__col-title::before {
+  content: '>';
+  color: var(--neon-cyan);
+}
+
+.footer__links {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 0.65rem;
+}
+
+.footer__links a {
+  font-size: 0.85rem;
+  color: var(--neon-text-muted);
+  text-decoration: none;
+  transition: all 0.2s ease;
+  display: inline-block;
+}
+
+.footer__links a:hover {
+  color: var(--neon-cyan);
+  transform: translateX(4px);
+}
+
+.footer__bottom {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding-top: 1.5rem;
+  border-top: 1px dashed var(--neon-border);
+  gap: 1rem;
+  flex-wrap: wrap;
+}
+
+.footer__copy {
+  font-size: 0.8rem;
+  color: var(--neon-text-muted);
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+
+.footer__copy span {
+  font-family: var(--font-mono);
+  color: var(--neon-text);
+}
+
+.footer__api-badge {
+  font-family: var(--font-cyber);
+  font-size: 0.7rem;
+  letter-spacing: 0.5px;
+  color: var(--neon-text-muted);
+  background: var(--neon-bg);
+  border: 1px solid var(--neon-border);
+  padding: 4px 14px;
+  border-radius: 0px;
+  text-transform: uppercase;
+}
+
+.footer__api-badge a {
+  color: var(--neon-cyan);
+  text-decoration: none;
+  font-weight: 700;
+  transition: text-shadow 0.2s;
+}
+
+.footer__api-badge a:hover {
+  text-shadow: 0 0 8px var(--neon-cyan);
+}
+
+@media (max-width: 768px) {
+  .footer__grid {
+    grid-template-columns: 1fr 1fr;
+    gap: 2.5rem;
+  }
+
+  .footer__grid > :first-child {
+    grid-column: 1 / -1;
+  }
+}
